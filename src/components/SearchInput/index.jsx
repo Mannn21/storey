@@ -9,7 +9,7 @@ const SearchInput = () => {
 
 	const handleInput = () => {
 		const inputData = userInput.current.value;
-		if(!inputData ||  inputData.trim() == "") return;
+		if (!inputData || inputData.trim() == "") return;
 		dispatch(getInputSearchProducts(inputData));
 	};
 
