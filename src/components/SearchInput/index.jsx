@@ -19,7 +19,7 @@ const SearchInput = () => {
 				<input
 					type="text"
 					placeholder="search..."
-					className="group text-gray-800 tracking-wider w-full h-full focus:outline-none focus:border-none"
+					className="group bg-transparent text-gray-800 tracking-wider w-full h-full focus:outline-none focus:border-none"
 					ref={userInput}
 					onChange={handleInput}
 				/>

@@ -26,7 +26,7 @@ function App() {
 			) : null}
 			<Navbar />
 			<Burger />
-			<main className="px-10 pt-4 py-12 flex flex-col gap-4">
+			<main className="px-10 pt-10 py-12 flex flex-col gap-4">
 				<SearchInput />
 				<div className="flex flex-row gap-10 py-2">
 					<Sidebar />
