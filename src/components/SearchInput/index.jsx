@@ -14,12 +14,12 @@ const SearchInput = () => {
 	};
 
 	return (
-		<div className="flex flex-row justify-end items-center">
-			<div className="flex flex-row gap-2 border rounded-md items-center w-[280px] h-10 px-3 py-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:border-indigo-400 transition-all duration-200 ease-in-out bg-transparent">
+		<div className="flex flex-row justify-end items-center bg-white">
+			<div className="flex flex-row gap-2 border rounded-md items-center w-[280px] h-10 px-3 py-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:border-indigo-400 transition-all duration-200 ease-in-out">
 				<input
 					type="text"
 					placeholder="search..."
-					className="group bg-transparent text-gray-800 tracking-wider w-full h-full focus:outline-none focus:border-none"
+					className="group text-gray-800 tracking-wider w-full h-full focus:outline-none focus:border-none"
 					ref={userInput}
 					onChange={handleInput}
 				/>
