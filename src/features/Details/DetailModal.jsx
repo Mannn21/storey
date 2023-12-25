@@ -5,10 +5,23 @@ import Star from "../../assets/star.svg";
 import { removeProduct, selectProduct } from "./detailSlice";
 import { removeModal } from "../../components/Modal/modalSlice";
 import { addProduct } from "../Cart/cartSlice";
+import Swal from "sweetalert2";
 
 const DetailModal = () => {
 	const dispatch = useDispatch();
 	const product = useSelector(selectProduct);
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+		didOpen: toast => {
+			toast.onmouseenter = Swal.stopTimer;
+			toast.onmouseleave = Swal.resumeTimer;
+		},
+	});
 
 	const rate = Math.floor(product.rating.rate);
 	const decimal = product.rating.rate % 1;
@@ -40,6 +53,10 @@ const DetailModal = () => {
 
 	const handleAddCart = () => {
 		dispatch(addProduct(product));
+		Toast.fire({
+			icon: "success",
+			title: "Berhasil menambahkan keranjang!",
+		});
 	};
 
 	return (

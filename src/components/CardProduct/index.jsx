@@ -4,9 +4,22 @@ import Cart from "../../assets/cartForCard.svg";
 import Star from "../../assets/star.svg";
 import { getProduct } from "../../features/Details/detailSlice";
 import { setModal } from "../Modal/modalSlice";
+import Swal from "sweetalert2";
 
 const CardProduct = ({ product, add, buyNow }) => {
 	const dispatch = useDispatch();
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 2000,
+		timerProgressBar: true,
+		didOpen: toast => {
+			toast.onmouseenter = Swal.stopTimer;
+			toast.onmouseleave = Swal.resumeTimer;
+		},
+	});
 
 	const handleDetail = () => {
 		dispatch(getProduct(product));
@@ -16,6 +29,14 @@ const CardProduct = ({ product, add, buyNow }) => {
 	const handleBuyNow = () => {
 		buyNow();
 		dispatch(setModal("buy"));
+	};
+
+	const handleCart = () => {
+		add();
+		Toast.fire({
+			icon: "success",
+			title: "Berhasil menambahkan keranjang!",
+		});
 	};
 
 	return (
@@ -63,7 +84,7 @@ const CardProduct = ({ product, add, buyNow }) => {
 				<div className="flex flex-row w-[15%] h-full justify-end items-center gap-1">
 					<button
 						type="button"
-						onClick={add}
+						onClick={handleCart}
 						className="flex justify-center items-center bg-gray-300 w-full h-full rounded-md p-1 hover:bg-gray-400 ease-in-out transition-all duration-200">
 						<img src={Cart} alt="cart" className="w-[90%] h-full md:w-full" />
 					</button>

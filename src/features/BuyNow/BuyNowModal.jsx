@@ -8,6 +8,7 @@ import {
 } from "./buyNowSlice";
 import EmptyProduct from "../../components/EmptyProduct";
 import { removeModal } from "../../components/Modal/modalSlice";
+import Swal from "sweetalert2"
 
 const ModalEmptyData = () => {
 	const dispatch = useDispatch()
@@ -40,16 +41,41 @@ const ModalWithData = ({ product }) => {
 
 		window.open(URI, "_blank");
 	};
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: "top-end",
+		showConfirmButton: false,
+		timer: 2000,
+		timerProgressBar: true,
+		didOpen: toast => {
+			toast.onmouseenter = Swal.stopTimer;
+			toast.onmouseleave = Swal.resumeTimer;
+		},
+	});
+	
 	const handleAddProduct = product => {
 		dispatch(buyProduct(product));
+		Toast.fire({
+			icon: "success",
+			title: "Berhasil menambahkan jumlah produk!",
+		});
 	};
 
 	const handleRemoveProduct = product => {
 		dispatch(removeProduct(product));
+		Toast.fire({
+			icon: "success",
+			title: "Berhasil mengurangi jumlah produk!",
+		});
 	};
 
 	const handleDeleteProduct = product => {
 		dispatch(deleteProduct(product));
+		Toast.fire({
+			icon: "success",
+			title: "Berhasil menghapus produk!",
+		});
 	};
 
 	const closeModal = () => {

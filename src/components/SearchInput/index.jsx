@@ -15,7 +15,7 @@ const SearchInput = () => {
 
 	return (
 		<div className="flex flex-row justify-end items-center">
-			<div className="flex flex-row gap-2 border rounded-md items-center w-[280px] h-10 px-3 py-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:border-indigo-400 transition-all duration-200 ease-in-out">
+			<div className="flex flex-row gap-2 border rounded-md items-center w-[280px] h-10 px-3 py-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 hover:border-indigo-400 transition-all duration-200 ease-in-out bg-transparent">
 				<input
 					type="text"
 					placeholder="search..."
