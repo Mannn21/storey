@@ -57,8 +57,8 @@ const ProductList = () => {
 	};
 
 	const handleBuyNow = product => {
-		return dispatch(buyProduct(product))
-	}
+		return dispatch(buyProduct(product));
+	};
 
 	return products.length >= 1 ? (
 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full md:w-[calc(100%-100px)]">
