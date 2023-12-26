@@ -69,7 +69,7 @@ const CardProduct = ({ product, add, buyNow }) => {
 						</div>
 						<h3>{product.rating.rate}</h3>
 					</div>
-					<h3>$ {product.price}</h3>
+					<h3>${product.price}</h3>
 				</div>
 			</div>
 			<div className="flex flex-row gap-2 h-9">
